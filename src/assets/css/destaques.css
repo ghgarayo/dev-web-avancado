@@ -1,0 +1,28 @@
+.filme-destaque{
+    display: flex !important;
+    column-gap: 26px;
+    height: calc(100vh - 52px);
+    background-image: linear-gradient(90deg, #002F52 35%, #326589 165%);
+    justify-content: center;
+    align-items: center;
+}
+
+.filme-destaque img {
+        width: 300px;
+        height: 450px;
+        border-radius: 15px;
+}
+
+.main-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 60%;
+
+    color: #CCC;
+}
+
+.filme-avaliacao-link{
+    text-decoration: none;
+}

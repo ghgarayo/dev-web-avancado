@@ -1,0 +1,18 @@
+.page-not-found{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    height: calc(100vh - 52px);
+    background-image: linear-gradient(90deg, #002F52 35%, #326589 165%);
+}
+
+.page-not-found img{
+    height: 500px;
+    filter: invert(14%) sepia(73%) saturate(6485%) hue-rotate(360deg) brightness(93%) contrast(125%);
+}
+
+.title-not-found{
+    color: #CCC;
+}

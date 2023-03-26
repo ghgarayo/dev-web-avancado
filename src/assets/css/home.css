@@ -1,0 +1,4 @@
+.main-home{
+    background-image: linear-gradient(90deg, #002F52 35%, #326589 165%);
+    height: calc(100vh - 52px);
+}
