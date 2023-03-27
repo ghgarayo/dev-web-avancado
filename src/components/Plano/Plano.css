@@ -1,7 +1,7 @@
 .subscription-container {
     display: flex;
     flex-direction: row;
-    height: calc(100vh - 52px);
+    height: calc(100vh - 162px);
     gap: 26px;
     background-image: linear-gradient(90deg, #002F52 35%, #326589 165%);
     justify-content: center;

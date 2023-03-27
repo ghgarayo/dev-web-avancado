@@ -1,9 +1,11 @@
-import "./Filme.css";
+import "./Card.css";
 
 import JohnWick from "./../../assets/images/john-wick-de-volta-ao-jogo.jpg";
 import JohnWick2 from "./../../assets/images/john-wick-2.png";
 import JohnWick3 from "./../../assets/images/John_Wick_3_Parabellum.png";
 import JohnWick4 from "./../../assets/images/images.jpeg";
+
+import { Link } from "react-router-dom";
 
 export const filmes = [
   {
@@ -60,7 +62,7 @@ export const filmes = [
 export default function Filme() {
   return (
     <div className="container ">
-      <p className='title px-3 py-1 btn-primary'> Filmes em Destaque: </p>    
+      {/* <p className='title px-3 py-1 btn-primary'> Filmes em Destaque </p>     */}
       <div className="row">
         {filmes.map((filme, i) => (
           <div className="col" key={i}>
@@ -75,9 +77,9 @@ export default function Filme() {
                   {filme.titulo} <br />
                   {filme.subtitulo} - ({filme.ano})
                 </h5>
-                <a href={`/detalhes/${filme.redirectTo}`}>
+                <Link to={`/detalhes/${filme.redirectTo}`}>
                   <div className="btn btn-primary my-2">Detalhes</div>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

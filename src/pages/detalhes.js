@@ -2,14 +2,17 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { filmes } from "../components/Filme/index.js";
+import { filmes } from "../components/Card/index.js";
 
 import "./../assets/css/destaques.css";
 
 function Detalhes() {
   const { filme } = useParams();
 
-  return filmes.map((movieToBeShown, i) => {
+  return(
+
+    // eslint-disable-next-line
+    filmes.map((movieToBeShown, i) => {
     if (movieToBeShown.redirectTo === filme) {
       return (
         <div className="filme-destaque px-5" key={i}>
@@ -38,8 +41,8 @@ function Detalhes() {
           </article>
         </div>
       );
-    }
-  });
+    } 
+  }));
 }
 
 export default Detalhes;
