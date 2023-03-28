@@ -6,6 +6,7 @@ import JohnWick3 from "./../../assets/images/John_Wick_3_Parabellum.png";
 import JohnWick4 from "./../../assets/images/images.jpeg";
 
 import { Link } from "react-router-dom";
+import Assistido from "../Assistido/Assistido";
 
 export const filmes = [
   {
@@ -19,6 +20,7 @@ export const filmes = [
     nota: "86%",
     linkAvalicacao: "https://www.rottentomatoes.com/m/john_wick",
     redirectTo: "john-wick",
+    assistido: true,
   },
   {
     titulo: "John Wick 2",
@@ -31,6 +33,7 @@ export const filmes = [
     nota: "89%",
     linkAvalicacao: "https://www.rottentomatoes.com/m/john_wick_chapter_2",
     redirectTo: "john-wick-chapter-2",
+    assistido: true,
   },
   {
     titulo: "John Wick 3",
@@ -44,6 +47,7 @@ export const filmes = [
     linkAvalicacao:
       "https://www.rottentomatoes.com/m/john_wick_chapter_3_parabellum",
     redirectTo: "john-wick-chapter-3",
+    assistido: false,
   },
   {
     titulo: "John Wick 4",
@@ -56,13 +60,13 @@ export const filmes = [
     nota: "89%",
     linkAvalicacao: "https://www.rottentomatoes.com/m/john_wick_chapter_4",
     redirectTo: "john-wick-chapter-4",
+    assistido: false,
   },
 ];
 
 export default function Filme() {
   return (
     <div className="container ">
-      {/* <p className='title px-3 py-1 btn-primary'> Filmes em Destaque </p>     */}
       <div className="row">
         {filmes.map((filme, i) => (
           <div className="col" key={i}>
@@ -75,8 +79,9 @@ export default function Filme() {
               <div className="card-body text-center">
                 <h5 className="card-title text-center">
                   {filme.titulo} <br />
-                  {filme.subtitulo} - ({filme.ano})
+                  {filme.subtitulo} - {filme.ano}
                 </h5>
+                <Assistido assistido = {filme.assistido} />
                 <Link to={`/detalhes/${filme.redirectTo}`}>
                   <div className="btn btn-primary my-2">Detalhes</div>
                 </Link>
