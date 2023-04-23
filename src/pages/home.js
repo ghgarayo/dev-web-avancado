@@ -1,11 +1,11 @@
 import React from 'react';
 import "./../assets/css/home.css"
-import Filme from './../components/Filme/index';
+import ListaFilmesAPI from '../components/ListaFilmesAPI/ListaFilmesAPI';
 
 function Home() {
     return (
         <main className='main-home'>
-            <Filme />
+            <ListaFilmesAPI />
         </main>
     )
 }

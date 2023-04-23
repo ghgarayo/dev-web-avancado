@@ -1,6 +1,7 @@
 import React from 'react';
 import Server from './../assets/images/server.svg';
 import "./../assets/css/aboutus.css"
+
 function Sobre() {
     
     return (
