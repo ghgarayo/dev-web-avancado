@@ -1,11 +1,50 @@
 import "./Pesquisa.css";
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Pesquisa(props) {
-  console.log("props", props);
-  const [pesquisa, setPesquisa] = useState([1]);
+  const [textoDigitado, setTextoDigitado] = useState("");
+  const [filmesFiltrados, setFilmesFiltrados] = useState([]);
+  const [pesquisaValida, setPesquisaValida] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
   const { listaFilmes } = props;
+
+  useEffect(() => {
+    setLoading(true);
+    setError("");
+
+    if (textoDigitado.trim() === "") {
+      setFilmesFiltrados([]);
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const filtered = filterMovies(textoDigitado, listaFilmes);
+      setFilmesFiltrados(filtered);
+      setLoading(false);
+      if (filtered.length === 0) {
+        setError(<p className="erro-pesquisa">Nenhum filme encontrado. Verifique sua pesquisa.</p>);
+      }
+    } catch (error) {
+      setError("Erro! Verifique sua pesquisa.");
+      setLoading(false);
+    }
+  }, [textoDigitado, listaFilmes]);
+
+  function filterMovies(textoDigitado, listaFilmes) {
+    const filmesFiltrados = listaFilmes.filter((filme) =>
+        filme.titulo.toLowerCase().includes(textoDigitado.toLowerCase()) ||
+        filme.ano.toString().includes(textoDigitado)
+    );
+    return filmesFiltrados;
+  }
+
+  function handleTextChange(event) {
+    setTextoDigitado(event.target.value);
+    setPesquisaValida(true)
+  }
 
   return (
     <div className="pesquisa-container">
@@ -14,50 +53,40 @@ export default function Pesquisa(props) {
         className="pesquisa-input"
         name="pesquisa"
         placeholder="Faça aqui sua pesquisa rápida!"
-        onBlur={(e) => {
-          const textoDigitado = e.target.value;
-          console.log("texto digitado:", textoDigitado);
-          console.log("tamanho do texto digitado: ", textoDigitado.length);
-
-          {
-            textoDigitado !== ""
-              ? setPesquisa(
-                  listaFilmes.filter((filme) =>
-                    filme.titulo
-                      .toLowerCase()
-                      .includes(textoDigitado.toLowerCase())
-                  )
-                )
-              : setPesquisa("");
-          }
-        }}
+        value={textoDigitado}
+        onChange={handleTextChange}
       />
-      {pesquisa.length > 1 && pesquisa !== "" ? (
+      {loading && <div>Carregando...</div>}
+      {error && <div>{error}</div>}
+      {filmesFiltrados.length > 0 && (
         <div className="resultado-pesquisa">
           <div className="row">
-              {pesquisa.map((filme, i) => (
-                <div className="col" key={i}>
-                  <div className="d-flex card">
-                    <img
-                      src={`${filme.poster}`}
-                      alt={filme.titulo}
-                      className="card-img-top"
-                    />
-                    <div className="card-body text-center">
-                      <h5 className="card-title text-center">
-                        {filme.titulo} - {filme.ano}
-                      </h5>
-                      <a href={`/detalhes/${filme.id}`}>
-                        <div className="btn btn-primary my-2">Detalhes</div>
-                      </a>
-                    </div>
+            {filmesFiltrados.map((movie) => (
+              <div className="col" key={movie.id}>
+                <div className="d-flex card">
+                  <img
+                    src={`${movie.poster}`}
+                    alt={movie.titulo}
+                    className="card-img-top"
+                  />
+                  <div className="card-body text-center">
+                    <h5 className="card-title text-center">
+                      {movie.titulo} - {movie.ano}
+                    </h5>
+                    <a href={`/detalhes/${movie.id}`}>
+                      <div className="btn btn-primary my-2">Detalhes</div>
+                    </a>
                   </div>
                 </div>
-              ))}
+              </div>
+            ))}
           </div>
         </div>
-      ) : (
-        <>Nada Encontrado</>
+      )}
+      {!pesquisaValida && filmesFiltrados.length === 0 && !loading && (
+        <div className="resultado-pesquisa">
+          <p className="erro-pesquisa">Nenhum filme encontrado. Verifique sua pesquisa.</p>
+        </div>
       )}
     </div>
   );

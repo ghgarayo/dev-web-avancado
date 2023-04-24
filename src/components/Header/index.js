@@ -2,7 +2,7 @@ import "./Header.css";
 
 export default function Header() {
     return (
-        <div className="container">
+        <div className="header-container">
             <header className="d-flex ">
                 <ul className="nav px-3 col-12 col-md-auto justify-content-center">
                     <li><a href="/" className="nav-link px-2">Home</a></li>

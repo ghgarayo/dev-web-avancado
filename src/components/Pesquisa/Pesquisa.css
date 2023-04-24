@@ -2,7 +2,6 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 100vw;
     align-items: center;
     justify-content: center;
 
@@ -25,8 +24,14 @@
 .resultado-pesquisa{
     position: absolute;
     top: 110px;
-    background-color: #000000b2;
+    background-color: #000000da;
     width: 100%;
-    height: calc(100vh + 50px);
+    height: 1400px;
     z-index: 10;
+    padding: 0 16px;
+}
+
+.erro-pesquisa{
+    font-size: 24px;
+    color: red;
 }

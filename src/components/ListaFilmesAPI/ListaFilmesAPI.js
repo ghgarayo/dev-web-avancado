@@ -19,7 +19,7 @@ export default function ListaFilmesAPI() {
     <>
       <Pesquisa listaFilmes={listaFilmes} />
       <div className="container ">
-        <p className="title px-3 py-1 btn-primary"> Filmes em Destaque: </p>
+        <p className="titulo"> Todos os Filmes Disponiveis</p>
         <div className="row">
           {listaFilmes ? (
             listaFilmes.map((filme, i) => (
