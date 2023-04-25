@@ -60,17 +60,17 @@ export default function Pesquisa(props) {
       {error && <div>{error}</div>}
       {filmesFiltrados.length > 0 && (
         <div className="resultado-pesquisa">
-          <div className="row">
+          <div className="lista-container">
             {filmesFiltrados.map((movie) => (
-              <div className="col" key={movie.id}>
-                <div className="d-flex card">
+              <li className="linha-pesquisa" key={movie.id}>
+                <div className="card-item">
                   <img
                     src={`${movie.poster}`}
                     alt={movie.titulo}
-                    className="card-img-top"
+                    className="img-item-pesquisa"
                   />
-                  <div className="card-body text-center">
-                    <h5 className="card-title text-center">
+                  <div className="card-descricao">
+                    <h5 className="card-item-titulo text-center">
                       {movie.titulo} - {movie.ano}
                     </h5>
                     <a href={`/detalhes/${movie.id}`}>
@@ -78,7 +78,7 @@ export default function Pesquisa(props) {
                     </a>
                   </div>
                 </div>
-              </div>
+              </li>
             ))}
           </div>
         </div>

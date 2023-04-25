@@ -25,10 +25,37 @@
     position: absolute;
     top: 110px;
     background-color: #000000da;
-    width: 100%;
+    width: 750px;
     height: 1400px;
     z-index: 10;
     padding: 0 16px;
+}
+
+.lista-container{
+
+}
+
+.linha-pesquisa{
+    
+}
+
+.card-item{
+    display: flex;
+    justify-content: space-around;
+}
+
+.img-item-pesquisa{
+    width: 100px;
+    height: 150px;
+}
+
+.card-descricao{
+    display: flex;
+    gap: 100px;
+}
+
+.card-item-titulo{
+    color: #CCC;
 }
 
 .erro-pesquisa{
