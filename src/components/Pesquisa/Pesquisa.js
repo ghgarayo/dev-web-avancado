@@ -35,8 +35,7 @@ export default function Pesquisa(props) {
 
   function filterMovies(textoDigitado, listaFilmes) {
     const filmesFiltrados = listaFilmes.filter((filme) =>
-        filme.titulo.toLowerCase().includes(textoDigitado.toLowerCase()) ||
-        filme.ano.toString().includes(textoDigitado)
+        filme.titulo.toLowerCase().includes(textoDigitado.toLowerCase())
     );
     return filmesFiltrados;
   }
@@ -69,25 +68,23 @@ export default function Pesquisa(props) {
                     alt={movie.titulo}
                     className="img-item-pesquisa"
                   />
-                  <div className="card-descricao">
                     <h5 className="card-item-titulo text-center">
                       {movie.titulo} - {movie.ano}
                     </h5>
                     <a href={`/detalhes/${movie.id}`}>
                       <div className="btn btn-primary my-2">Detalhes</div>
                     </a>
-                  </div>
                 </div>
               </li>
             ))}
           </div>
         </div>
       )}
-      {!pesquisaValida && filmesFiltrados.length === 0 && !loading && (
+      {/* {!pesquisaValida && filmesFiltrados.length === 0 && !loading && (
         <div className="resultado-pesquisa">
           <p className="erro-pesquisa">Nenhum filme encontrado. Verifique sua pesquisa.</p>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

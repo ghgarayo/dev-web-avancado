@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
 import "./ListaFilmesAPI.css";
+
+import { useEffect, useState } from "react";
 import Pesquisa from "../Pesquisa/Pesquisa";
+import JaAssistido from "../JaAssistido/JaAssistido";
 
 export default function ListaFilmesAPI() {
   const options = { method: "get" };
@@ -34,9 +36,12 @@ export default function ListaFilmesAPI() {
                     <h5 className="card-title text-center">
                       {filme.titulo} - {filme.ano}
                     </h5>
-                    <a href={`/detalhes/${filme.id}`}>
-                      <div className="btn btn-primary my-2">Detalhes</div>
-                    </a>
+                    <div className="card-button-container">
+                      <a href={`/detalhes/${filme.id}`}>
+                        <div className="btn btn-primary my-2">Detalhes</div>
+                      </a>
+                      <JaAssistido assistido={filme.assistido}></JaAssistido>
+                    </div>
                   </div>
                 </div>
               </div>
