@@ -2,6 +2,7 @@ import "./../assets/css/destaques.css";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import Assistido from "../components/JaAssistido/JaAssistido";
 
 function Detalhes() {
   const { filme } = useParams();
@@ -28,12 +29,13 @@ function Detalhes() {
         <p className="filme-sinopse">{movieToBeShown.sinopse}</p>
         <div className="btn-container">
           <Link
-            to={`https://youtube.com/results?search_query=${movieToBeShown.titulo} Trailer ,`}
+            to={`https://youtube.com/results?search_query=${movieToBeShown.titulo} Trailer`}
             className="filme-trailer"
           >
             <div className="btn btn-primary me-3">Trailer</div>
           </Link>
-          <Link to="/" className="btn btn-primary">
+          <Assistido assistido={movieToBeShown.assistido}></Assistido>
+          <Link to="/" className="btn btn-primary ms-3">
             Voltar ao Inicio
           </Link>
         </div>

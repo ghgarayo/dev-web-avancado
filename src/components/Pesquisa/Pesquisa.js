@@ -26,9 +26,11 @@ export default function Pesquisa(props) {
       setLoading(false);
       if (filtered.length === 0) {
         setError(<p className="erro-pesquisa">Nenhum filme encontrado. Verifique sua pesquisa.</p>);
+        setPesquisaValida(false);
       }
     } catch (error) {
       setError("Erro! Verifique sua pesquisa.");
+      setPesquisaValida(false);
       setLoading(false);
     }
   }, [textoDigitado, listaFilmes]);
@@ -40,8 +42,8 @@ export default function Pesquisa(props) {
     return filmesFiltrados;
   }
 
-  function handleTextChange(event) {
-    setTextoDigitado(event.target.value);
+  function handleTextChange(e) {
+    setTextoDigitado(e.target.value);
     setPesquisaValida(true)
   }
 
@@ -80,11 +82,11 @@ export default function Pesquisa(props) {
           </div>
         </div>
       )}
-      {/* {!pesquisaValida && filmesFiltrados.length === 0 && !loading && (
+      {!pesquisaValida && filmesFiltrados.length === 0 && !loading && (
         <div className="resultado-pesquisa">
           <p className="erro-pesquisa">Nenhum filme encontrado. Verifique sua pesquisa.</p>
         </div>
-      )} */}
+      )}
     </div>
   );
 }

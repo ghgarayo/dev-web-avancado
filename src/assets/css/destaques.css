@@ -16,13 +16,7 @@
 .main-text{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
     width: 60%;
-
     color: #CCC;
 }
 
-.filme-avaliacao-link{
-    text-decoration: none;
-}

@@ -1,0 +1,34 @@
+.filtro-container{
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+}
+
+.filtro-opcoes,
+.ordem-opcoes{
+    display: flex;
+    gap: 6px;
+}
+
+.filtro-titulo,
+.ordem-titulo{
+    color: #CCC;
+    font-size: 16px;
+    font-weight: 700;
+
+    margin-right: 0.25rem;
+}
+
+
+.filtro, .ordem{
+    display: flex;
+}
+
+.filtro-container div input{
+    margin-right: 0.25rem;
+}
+
+.filtro-container div label{
+    color: #CCC;
+   
+}
