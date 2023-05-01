@@ -1,0 +1,16 @@
+
+.plano-selecionado-valores{
+    display: flex;
+    width: 40rem;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.mudar-plano{
+    padding: 10px;
+}
+
+.opcao-plano.active{
+    background-color: #CCC;
+    color:#000
+}

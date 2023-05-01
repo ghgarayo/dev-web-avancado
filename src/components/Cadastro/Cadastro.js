@@ -1,6 +1,12 @@
 import "./Cadastro.css";
-import { useParams } from "react-router-dom";
+
 import { useState } from "react";
+import { useParams } from "react-router-dom";
+
+import CadastroDadosPessoais from "./CadastoDadosPessoais";
+import CadastroDadosCartao from "./CadastoDadosCartao";
+import PlanoEscolhido from "../PlanoEscolhido/PlanoEscolhido";
+import RetornoButtonHome from "../RetornoHomeButton/RetornoHomeButton";
 
 export default function Cadastro() {
   const { id } = useParams();
@@ -13,6 +19,9 @@ export default function Cadastro() {
   const [nomeCartao, setNomeCartao] = useState("");
   const [cvcCartao, setCvcCartao] = useState("");
 
+  const [plano, setPlano] = useState({});
+
+  
   function handleNomeChange(e) {
     setNome(e.target.value);
   }
@@ -20,7 +29,7 @@ export default function Cadastro() {
   function handleEmailChange(e) {
     setEmail(e.target.value);
   }
-
+  
   function handleTelefoneChange(e) {
     setTelefone(e.target.value);
   }
@@ -28,13 +37,17 @@ export default function Cadastro() {
   function handleNumeroCartaoChange(e) {
     setNumeroCartao(e.target.value);
   }
-
+  
   function handleCodigoCvcChange(e) {
     setCvcCartao(e.target.value);
   }
-
+  
   function handleNomeTitularChange(e) {
     setNomeCartao(e.target.value);
+  }
+  
+  function handlePlanoChange(novoPlano) {
+    setPlano(novoPlano);
   }
 
   const retornoLog = `
@@ -48,8 +61,9 @@ export default function Cadastro() {
   Número do cartão: ${numeroCartao}
   Código do CVC: ${cvcCartao}
 
-  -=-=-= Plano Escolhido =-=-=- 
-
+  -=-=-= Plano =-=-=- 
+  Plano Escolhido: ${plano.titulo}
+  Valor: ${plano.valor}
 `;
 
   function showLog() {
@@ -58,45 +72,37 @@ export default function Cadastro() {
 
   return (
     <section className="cadastro-container">
-      <div className="cadastro-dados-pessoais">
-        <label htmlFor="nome">Nome:</label>
-        <input type="text" name="nome" onChange={handleNomeChange} />
-
-        <label htmlFor="telefone">Telefone:</label>
-        <input type="text" name="telefone" onChange={handleTelefoneChange} />
-        <label htmlFor="email">Email:</label>
-        <input type="text" name="email" onChange={handleEmailChange} />
+      <div className="form">
+        <h1 className="cadastro-titulo"> Finalize seu cadastro! </h1>
+        <div className="cadastro-inputs">
+          <CadastroDadosPessoais
+            nome={nome}
+            email={email}
+            telefone={telefone}
+            onNomeChange={handleNomeChange}
+            onEmailChange={handleEmailChange}
+            onTelefoneChange={handleTelefoneChange}
+          />
+          <CadastroDadosCartao
+            numeroCartao={numeroCartao}
+            nomeCartao={nomeCartao}
+            cvcCartao={cvcCartao}
+            onNumeroCartaoChange={handleNumeroCartaoChange}
+            onNomeCartaoChange={handleNomeTitularChange}
+            onCvcCartaoChange={handleCodigoCvcChange}
+          />
+          <PlanoEscolhido
+            onPlanoChange={handlePlanoChange}
+            idPlanoSelecionado={id}
+          />
+        </div>
+        <div className="buttons-container">
+          <button className="cadastro-submit btn btn-success" onClick={showLog}>
+            Finalizar!
+          </button>
+          <RetornoButtonHome />
+        </div>
       </div>
-      <div className="cadastro-dados-cartao">
-        <form className="form">
-          <label htmlFor="numero">Número do Cartão:</label>
-          <input
-            type="text"
-            id="numero"
-            name="numero"
-            maxLength="20"
-            onChange={handleNumeroCartaoChange}
-          />
-          <label htmlFor="nome">Nome do Titular:</label>
-          <input
-            type="text"
-            id="nome"
-            name="nome"
-            onChange={handleNomeTitularChange}
-          />
-          <label htmlFor="cvc">Código CVC:</label>
-          <input
-            type="password"
-            id="cvc"
-            name="cvc"
-            maxLength="3"
-            onChange={handleCodigoCvcChange}
-          />
-        </form>
-      </div>
-      <button className="cadastro-submit" onClick={showLog}>
-        Finalizar!
-      </button>
     </section>
   );
 }

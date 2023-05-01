@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Assistido from "../components/JaAssistido/JaAssistido";
+import RetornoButtonHome from "../components/RetornoHomeButton/RetornoHomeButton";
 
 function Detalhes() {
   const { filme } = useParams();
@@ -35,10 +36,8 @@ function Detalhes() {
             <div className="btn btn-primary me-3">Trailer</div>
           </Link>
           <Assistido assistido={movieToBeShown.assistido}></Assistido>
-          <Link to="/" className="btn btn-primary ms-3">
-            Voltar ao Inicio
-          </Link>
         </div>
+          <RetornoButtonHome  className="ps-3"/>
       </article>
     </div>
   );

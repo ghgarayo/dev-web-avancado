@@ -1,33 +1,57 @@
 .subscription-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     height: calc(100vh - 52px);
-    gap: 26px;
-    background-image: linear-gradient(90deg, #002F52 35%, #326589 165%);
     justify-content: center;
     align-items: center;
 }
 
+.planos-opcoes{
+    display: flex;
+    gap: 26px;
+    flex-direction: row;
+}
+
 .card-plano {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     height: 350px;
     width: 350px;
     border-radius: 15px;
-    background: #ccc
+    background: #ccccccd8;
+    transition: all 0.4s;
+
+}
+
+.card-plano:hover{
+    background: #CCC;
+    transform: scale(1.1);
+    transition: all 0.4s;
+    border: #0d6efd 3px solid;
 
 }
 
 .card-plano-title,
 .card-plano-subtitle {
     text-align: center;
-
 }
 
 .card-plano-title {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .card-plano-subtitle {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
+}
+
+.plano-valor{
+    text-align: center;
+}
+
+.descricao-plano li{
+    list-style: none;
 }
 
 .card-plano-text {
@@ -37,12 +61,16 @@
     margin-bottom: 50px
 }
 
-.card-plano-link{
-    text-decoration: none;
-}
-
 .card-plano-bottom {
     display: flex !important;
     justify-content: space-around;
     align-items: center;
+}
+
+.card-plano-link{
+    opacity: 0.5;;
+}
+
+.card-plano:hover .card-plano-link{
+    opacity: 1;
 }

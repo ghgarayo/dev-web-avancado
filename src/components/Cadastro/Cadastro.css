@@ -1,0 +1,89 @@
+.cadastro-container{
+    height: calc(100vh - 52px);
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.form{
+    display: grid;
+    place-items: center;
+    column-gap: 50px;;
+    border-radius: 45px;
+    height: 600px;
+    width: 50rem;
+
+    background-color: #CCC;
+}
+
+.cadastro-inputs{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+
+    gap: 16px;
+    row-gap: 40px;
+}
+
+.cadastro-plano-escolhido{
+    grid-column: span 2;
+}
+
+.cadastro-dados-pessoais,
+.cadastro-dados-cartao{
+    display: flex;
+    flex-direction: column;
+    column-gap: 50px;
+}
+
+.cadastro-titulo{
+    color:#0d6efd;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.dados-pessoais-titulo,
+.dados-cartoes-titulo,
+.dados-plano-titulo,
+.mudar-plano-titulo{
+    text-align: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 700; 
+    color: #0d6efd;
+}
+
+.dados-input{
+    display: flex;
+    justify-content: flex-end;
+    text-align: center;
+    width: 350px;
+    margin: 6px auto;
+    border-radius: 15px;
+    border: none;
+}
+
+.buttons-container{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cadastro-submit{
+    height: fit-content;
+    width: fit-content;
+}
+
+.mudar-plano{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.opcao-plano{
+    border-radius: 5px;
+}

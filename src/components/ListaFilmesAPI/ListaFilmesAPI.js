@@ -7,6 +7,7 @@ import JaAssistido from "../JaAssistido/JaAssistido";
 import Filtro from "../Filtro/Filtro";
 
 export default function ListaFilmesAPI() {
+  
   const options = { method: "get" };
   const [listaFilmes, setListaFilmes] = useState(null);
   const [filtroSelecionado, setFiltroSelecionado] = useState("titulo");
