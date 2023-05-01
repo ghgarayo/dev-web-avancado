@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Pesquisa from "../Pesquisa/Pesquisa";
 import JaAssistido from "../JaAssistido/JaAssistido";
 import Filtro from "../Filtro/Filtro";
+import Carregando from "../Carregando/Carregando";
 
 export default function ListaFilmesAPI() {
   
@@ -88,7 +89,7 @@ export default function ListaFilmesAPI() {
               </div>
             ))
           ) : (
-            <div>Loading...</div>
+            <Carregando />
           )}
         </div>
       </div>

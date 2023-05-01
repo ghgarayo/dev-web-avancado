@@ -1,0 +1,38 @@
+.comentarios-container{
+    min-height: 34vh;
+}
+
+.comentarios-titulo,
+.nenhum-comentario{
+    color: #CCC;
+    padding-left: 36px;
+    margin-bottom: 16px;
+}
+
+.usuario-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.usuario-usuario{
+    font-size: 0.75rem;
+}
+
+.usuario-usuario:hover{
+    color: #eee;
+    text-decoration: underline;
+}
+
+.usuario-imagem{
+    background-color: #424242;
+    border-radius: 45px;
+    margin-right: 8px;
+    height: 50px;
+    width: 50px;
+}
+
+.comentario{
+    display: flex;
+    list-style: none;
+    color: #CCC;
+}
