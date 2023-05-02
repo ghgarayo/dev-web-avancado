@@ -25,3 +25,14 @@
     color: #CCC;
 }
 
+.erro-container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.erro-texto{
+    color: #CCC;
+    font-size: 40px;
+    font-weight: 700;
+}
